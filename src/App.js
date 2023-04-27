@@ -7,16 +7,14 @@ const App = () => {
   const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    // Fetch transactions from the server
-    fetch('http://localhost:8001/transactions')
-      .then((response) => response.json())
-      .then((data) => {
-        setTransactions(data);
-        setFilteredTransactions(data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    //Fetching from the db.json happens here
+    
+    useEffect(() => {
+      fetch('https://my-json-server.typicode.com/edwinaloo/phase-2-challenge/transactions')
+      .then (response => response.json())
+      .then(transactions => setTransactions(transactions));
+      
+      }, []);
 
   const handleAddTransaction = (newTransaction) => {
     setFilteredTransactions([...filteredTransactions, newTransaction]);

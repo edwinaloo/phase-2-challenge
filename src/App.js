@@ -10,7 +10,7 @@ const App = () => {
     //Fetching from the db.json happens here
     
     useEffect(() => {
-      fetch('https://my-json-server.typicode.com/edwinaloo/phase-2-challenge/"transactions"')
+      fetch('https://my-json-server.typicode.com/edwinaloo/phase-2-challenge/transaction')
       .then (response => response.json())
       .then(transactions => setTransactions(transactions));
       
